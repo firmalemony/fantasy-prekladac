@@ -170,6 +170,14 @@ textarea {
     box-sizing: border-box; /* Zajistí, že padding a border jsou součástí celkové šířky */
   }
 
+  .lang-select select {
+      padding: 12px; /* Zvětší výšku select boxů */
+  }
+
+  textarea {
+      min-height: 120px; /* Zvětší minimální výšku textového pole */
+  }
+  
   .lang-select span {
     transform: rotate(90deg);
     margin: 4px 0;
