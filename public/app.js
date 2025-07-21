@@ -1,10 +1,13 @@
 // Slovníky budou načítány dynamicky podle výběru
 const DICTIONARIES = {
-  elf: 'slovniky/elf.json',
-  klingon: 'slovniky/klingon.json',
-  dothraki: 'slovniky/dothraki.json',
-  esperanto: 'slovniky/esperanto.json',
-  cs: 'slovniky/cs.json', // fallback, pokud bude potřeba
+  elf: '/slovniky/elf.json',
+  klingon: '/slovniky/klingon.json',
+  dothraki: '/slovniky/dothraki.json',
+  esperanto: '/slovniky/esperanto.json',
+  quenya: '/slovniky/quenya.json',
+  dwarvish: '/slovniky/dwarvish.json',
+  valyrian: '/slovniky/valyrian.json',
+  cs: '/slovniky/cs.json', // fallback, pokud bude potřeba
 };
 
 let currentUser = null;
@@ -78,7 +81,7 @@ function updateCreditsUI() {
   } else {
     translateBtn.disabled = false;
     translateBtn.classList.remove('disabled');
-    translateBtn.innerHTML = '<img src="assets/sword.svg" alt="Přeložit" class="icon"> Přeložit';
+    translateBtn.innerHTML = '<img src="/assets/sword.svg" alt="Přeložit" class="icon"> Přeložit';
   }
 }
 
