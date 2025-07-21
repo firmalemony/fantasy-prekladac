@@ -181,7 +181,7 @@ async function translateText() {
   // Pokud je většina slov nepřeložena, použij OpenAI API
   const untranslatedCount = translated.filter((w, i) => w === words[i]).length;
   let usedCredits = 0;
-  if (untranslatedCount > words.length / 2 && OPENAI_API_KEY) {
+  if (untranslatedCount > words.length / 2) { // ODSTRANĚNA KONTROLA && OPENAI_API_KEY
     if (currentCredits < words.length) {
       outputBox.textContent = 'Nemáš dostatek kreditů na překlad této věty.';
       return;
@@ -189,7 +189,14 @@ async function translateText() {
     outputBox.textContent = 'Probíhá magický překlad...';
     const openaiResult = await openaiTranslate(text, from, to);
     outputBox.textContent = openaiResult || translated.join(' ');
-    usedCredits = words.length;
+    
+    // Odečti kredity pouze pokud překlad proběhl úspěšně
+    if (openaiResult && !openaiResult.startsWith('[')) {
+        usedCredits = words.length;
+    } else {
+        usedCredits = 0; // Neodečítej kredity, pokud nastala chyba
+    }
+    
   } else {
     outputBox.textContent = translated.join(' ');
     // Slovníkový překlad neodečítá kredity
