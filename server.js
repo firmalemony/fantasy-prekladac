@@ -51,7 +51,7 @@ app.post('/api/translate', async (req, res) => {
 
 // SPA Fallback - Serve index.html for any other requests
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
 app.listen(port, () => {
