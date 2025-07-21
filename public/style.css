@@ -163,6 +163,13 @@ textarea {
     gap: 12px;
   }
 
+  /* Přidáno pravidlo pro zajištění, že se select boxy a textarea vejdou na šířku */
+  .lang-select select,
+  textarea {
+    width: 100%;
+    box-sizing: border-box; /* Zajistí, že padding a border jsou součástí celkové šířky */
+  }
+
   .lang-select span {
     transform: rotate(90deg);
     margin: 4px 0;
