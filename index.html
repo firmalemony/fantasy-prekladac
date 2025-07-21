@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fantasy Překladač</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=MedievalSharp&family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container fantasy-bg">
+    <header>
+      <h1 class="fantasy-title">🧙‍♂️ Fantasy Překladač</h1>
+      <button id="login-btn" class="fantasy-btn">Přihlásit se Googlem</button>
+      <div id="user-info" class="hidden"></div>
+    </header>
+    <main>
+      <div class="translator-box">
+        <div class="lang-select">
+          <select id="from-lang">
+            <option value="cs">Čeština</option>
+            <option value="elf">Elfština</option>
+            <option value="klingon">Klingonština</option>
+            <option value="dothraki">Dothrakština</option>
+            <option value="esperanto">Esperanto</option>
+          </select>
+          <span>→</span>
+          <select id="to-lang">
+            <option value="elf">Elfština</option>
+            <option value="klingon">Klingonština</option>
+            <option value="dothraki">Dothrakština</option>
+            <option value="esperanto">Esperanto</option>
+            <option value="cs">Čeština</option>
+          </select>
+        </div>
+        <textarea id="input-text" placeholder="Zadejte text..." rows="4"></textarea>
+        <button id="translate-btn" class="fantasy-btn"><img src="assets/sword.svg" alt="Přeložit" class="icon"> Přeložit</button>
+        <div id="output-box" class="output-box"></div>
+        <button id="save-btn" class="fantasy-btn hidden"><img src="assets/scroll.svg" alt="Uložit" class="icon"> Uložit překlad</button>
+      </div>
+      <section id="history-section" class="hidden">
+        <h2><img src="assets/scroll.svg" class="icon"> Historie překladů</h2>
+        <ul id="history-list"></ul>
+        <button id="clear-history-btn" class="fantasy-btn">Smazat historii</button>
+      </section>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html> 
