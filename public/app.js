@@ -14,6 +14,8 @@ let lastTranslateTime = 0;
 // UI prvky
 const loginBtn = document.getElementById('login-btn');
 const userInfo = document.getElementById('user-info');
+const userEmailSpan = document.getElementById('user-email');
+const logoutBtn = document.getElementById('logout-btn');
 const fromLang = document.getElementById('from-lang');
 const toLang = document.getElementById('to-lang');
 const inputText = document.getElementById('input-text');
@@ -112,9 +114,11 @@ window.addEventListener('DOMContentLoaded', () => {
         .then(user => {
           currentUser = { id: user.sub, email: user.email };
           localStorage.setItem('fantasy_user', JSON.stringify(currentUser));
-          showUser();
-          loadHistory();
+          // PŘESMĚROVÁNÍ NA HLAVNÍ STRÁNKU
+          window.location.href = '/';
         });
+      // Zastavíme další provádění skriptu na této dočasné stránce
+      return;
     }
   } else {
     // Pokud je uživatel uložen v localStorage
@@ -132,12 +136,27 @@ function showUser() {
   if (currentUser) {
     loginBtn.classList.add('hidden');
     userInfo.classList.remove('hidden');
-    userInfo.textContent = `Přihlášen: ${currentUser.email}`;
+    userEmailSpan.textContent = `Přihlášen: ${currentUser.email}`;
     saveBtn.classList.remove('hidden');
     historySection.classList.remove('hidden');
+  } else {
+    loginBtn.classList.remove('hidden');
+    userInfo.classList.add('hidden');
   }
   loadCredits();
 }
+
+// Logika pro odhlášení
+logoutBtn.addEventListener('click', () => {
+    localStorage.removeItem('fantasy_user');
+    if (currentUser) {
+        localStorage.removeItem('fantasy_history_' + currentUser.id);
+    }
+    currentUser = null;
+    currentHistory = [];
+    showUser();
+    renderHistory();
+});
 
 // Zde byl dříve API klíč, nyní bude načítán z backendu
 const OPENAI_API_KEY = ''; // Tento klíč se již nepoužívá, nechávám pro integritu kódu

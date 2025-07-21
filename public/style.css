@@ -140,4 +140,11 @@ textarea {
   font-size: 1rem;
   color: #3a2c1a;
   box-shadow: 0 0 8px #bfae82;
+}
+#user-info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    margin-top: 10px;
 } 
