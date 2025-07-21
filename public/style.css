@@ -86,12 +86,7 @@ textarea {
   font-size: 1rem;
 }
 .icon {
-  width: 1.2em;
-  height: 1.2em;
-  vertical-align: middle;
-  margin-right: 8px;
-  stroke-width: 2.5;
-  stroke: #3a2c1a; /* Explicitní nastavení barvy ikony */
+  display: none;
 }
 #history-section {
   background: #f9f6ef;
@@ -153,10 +148,15 @@ textarea {
     align-items: center;
     gap: 16px;
     margin-top: 10px;
-} 
+}
 
 /* Optimalizace pro mobilní zařízení - zjednodušeno, protože flex-wrap řeší většinu problémů */
 @media (max-width: 480px) { /* Snížen breakpoint pro menší úpravy */
+  #user-info {
+    flex-direction: column; /* Zobrazí email a tlačítko pod sebou */
+    gap: 10px;
+  }
+
   .lang-select {
     flex-direction: column;
     align-items: stretch;

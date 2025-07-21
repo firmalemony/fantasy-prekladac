@@ -81,7 +81,7 @@ function updateCreditsUI() {
   } else {
     translateBtn.disabled = false;
     translateBtn.classList.remove('disabled');
-    translateBtn.innerHTML = '<img src="/assets/sword.svg" alt="Přeložit" class="icon"> Přeložit';
+    translateBtn.innerHTML = '🗡️ Přeložit'; // Návrat k emotikonu
   }
 }
 
