@@ -43,6 +43,8 @@ body {
   align-items: center;
   gap: 8px;
   margin-bottom: 12px;
+  flex-wrap: wrap; /* Umožní zalamování prvků */
+  justify-content: center; /* Vystředí prvky, když se zalomí */
 }
 select {
   font-family: 'Press Start 2P', cursive;
@@ -87,8 +89,9 @@ textarea {
   width: 1.2em;
   height: 1.2em;
   vertical-align: middle;
-  margin-right: 8px; /* Zvětšena mezera pro lepší vzhled */
-  stroke-width: 2.5; /* Silnější linka pro lepší viditelnost */
+  margin-right: 8px;
+  stroke-width: 2.5;
+  stroke: #3a2c1a; /* Explicitní nastavení barvy ikony */
 }
 #history-section {
   background: #f9f6ef;
@@ -152,16 +155,16 @@ textarea {
     margin-top: 10px;
 } 
 
-/* Optimalizace pro mobilní zařízení */
-@media (max-width: 600px) {
+/* Optimalizace pro mobilní zařízení - zjednodušeno, protože flex-wrap řeší většinu problémů */
+@media (max-width: 480px) { /* Snížen breakpoint pro menší úpravy */
   .lang-select {
-    flex-direction: column; /* Změní uspořádání na sloupec */
-    align-items: stretch;   /* Roztáhne prvky na plnou šířku */
+    flex-direction: column;
+    align-items: stretch;
     gap: 12px;
   }
 
   .lang-select span {
-    transform: rotate(90deg); /* Otočí šipku dolů */
+    transform: rotate(90deg);
     margin: 4px 0;
     text-align: center;
   }
